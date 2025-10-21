@@ -9,19 +9,19 @@ const HARDCODED_PLANET_DATA = [
     { id: 108, title: "Neptune - The API", overview: "The connection point between the application and external servers, the gateway for fetching data and functions. Distant Neptune represents the final and important connection point." }
 ];
 
-// JS concepts (used for naming the planets conceptually)
+
 const JS_CORE_NAMES = [
     "Promise", "Async/Await", "fetch()", "map()",
     "forEach()", "Class/OOP", "DOM/Events", "API"
 ];
 
-// *** APIService class has been removed ***
+
 
 class Planet {
     constructor(data, index) {
-        // Properties are now taken from the static array
+        
         this.conceptName = JS_CORE_NAMES[index - 1] || `Planet ${index}`;
-        this.name = data.title; // e.g., "Mercury - The Promise"
+        this.name = data.title; 
         this.id = data.id;
         this.overview = data.overview; 
 
@@ -40,7 +40,7 @@ class Planet {
     
     addClickListener() {
         this.element.addEventListener('click', () => {
-            // Extract the planet name part for the title display
+            
             const planetPart = this.name.split(' - ')[0].trim(); 
             displayPlanetDetails(this.name, this.overview, planetPart);
         });
@@ -108,7 +108,7 @@ function displayPlanetDetails(name, overview, conceptName) {
     detailContainer.classList.remove('hidden');
 }
 
-// Replaced the API call with static data processing
+
 async function initializeApp() {
     const planetsData = HARDCODED_PLANET_DATA;
     const statusElement = document.getElementById('loadingStatus');
@@ -131,4 +131,5 @@ async function initializeApp() {
 }
 
 initializeApp();
+
 
